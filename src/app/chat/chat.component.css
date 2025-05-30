@@ -1,0 +1,265 @@
+.chat-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: sans-serif;
+}
+
+.chat-box {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background: #f9f9f9;
+  margin-bottom: 10px;
+}
+
+.user {
+  text-align: right;
+  margin: 8px 0;
+  color: #333;
+}
+
+.gf {
+  text-align: left;
+  margin: 8px 0;
+  color: #007bff;
+}
+
+.input-area {
+  display: flex;
+  gap: 8px;
+}
+
+input {
+  flex: 1;
+  padding: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+}
+
+.typing {
+  font-style: italic;
+  color: gray;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #ffffff; /* Very dark blue/purple for deep space feel */
+    overflow: hidden; /* Hide anything outside the viewport */
+    perspective: 1000px; /* For 3D transformations */
+}
+
+.energy-core-container {
+    position: relative;
+    width: 350px; /* Overall size of the animation */
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d; /* Allows nested 3D transforms */
+}
+
+/* --- Core Nucleus --- */
+.core-nucleus {
+    position: absolute;
+    width: 150px; /* Make sure this is large enough for the icon */
+    height: 150px;
+  background: linear-gradient(to bottom, #F3C23A, #ffffff);
+    border-radius: 50%;
+ box-shadow: 
+  0 0 40px 15px #87ceeb,                      /* Bright blue glow */
+  0 0 80px 30px rgba(243, 194, 58, 0.5),       /* Golden yellow glow */
+  0 0 120px 50px rgba(255, 255, 255, 0.2); 
+    animation: core-pulse 3s infinite ease-in-out alternate;
+    z-index: 10; /* Bring to front */
+
+    /* Add flexbox to center the icon inside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Lock Icon Styling --- */
+.core-nucleus .fas.fa-lock {
+    color: #000; /* Black color for the lock icon */
+    font-size: 30px; /* Adjust size to fit well within the 70px core */
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    /* Ensure icon itself doesn't affect the core's pulse */
+    animation: none;
+    transform: none;
+}
+
+@keyframes core-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 
+            0 0 40px 15px #87ceeb,                              /* Sky blue core glow */
+            0 0 80px 30px rgba(243, 194, 58, 0.5),              /* Yellow mid glow */
+            0 0 120px 50px rgba(255, 255, 255, 0.2);            /* White outer glow */
+    }
+    100% {
+        transform: scale(1.05);
+        opacity: 0.9;
+        box-shadow: 
+            0 0 50px 20px #87ceeb,                              /* Sky blue grows */
+            0 0 90px 35px rgba(243, 194, 58, 0.6),              /* Yellow intensified */
+            0 0 130px 55px rgba(255, 255, 255, 0.3);            /* Brighter white glow */
+    }
+}
+
+/* --- Orbital Paths / Swirling Lines (unchanged from previous) --- */
+.orbital-path {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgba(255, 156, 9, 0.7);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 156, 9, 0.7);
+    transform-style: preserve-3d;
+    z-index: 5;
+}
+
+.path-1 {
+    transform: rotateX(70deg) rotateY(0deg);
+    animation: orbit-spin-1 15s linear infinite;
+}
+.path-2 {
+    transform: rotateY(70deg) rotateX(0deg);
+    animation: orbit-spin-2 18s linear infinite;
+}
+.path-3 {
+    transform: rotateZ(45deg) rotateX(40deg);
+    animation: orbit-spin-3 20s linear infinite;
+}
+
+@keyframes orbit-spin-1 {
+    0% { transform: rotateX(70deg) rotateY(0deg); }
+    100% { transform: rotateX(70deg) rotateY(360deg); }
+}
+@keyframes orbit-spin-2 {
+    0% { transform: rotateY(70deg) rotateX(0deg); }
+    100% { transform: rotateY(70deg) rotateX(360deg); }
+}
+@keyframes orbit-spin-3 {
+    0% { transform: rotateZ(45deg) rotateX(40deg) rotateY(0deg); }
+    100% { transform: rotateZ(45deg) rotateX(40deg) rotateY(360deg); }
+}
+
+/* --- Energy Particles / Electrons (unchanged from previous) --- */
+.energy-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 3px #fff, 0 0 20px 5px rgba(255, 255, 255, 0.5);
+    z-index: 15;
+}
+
+.particle-1 {
+    animation: particle-path-1 15s linear infinite;
+}
+.particle-2 {
+    animation: particle-path-2 18s linear infinite;
+}
+.particle-3 {
+    animation: particle-path-3 20s linear infinite;
+}
+
+@keyframes particle-path-1 {
+    0% { transform: rotateX(70deg) rotateY(0deg) translateX(125px); opacity: 0.8; }
+    25% { transform: rotateX(70deg) rotateY(90deg) translateY(-50px); opacity: 1; }
+    50% { transform: rotateX(70deg) rotateY(180deg) translateX(-125px); opacity: 0.8; }
+    75% { transform: rotateX(70deg) rotateY(270deg) translateY(50px); opacity: 1; }
+    100% { transform: rotateX(70deg) rotateY(360deg) translateX(125px); opacity: 0.8; }
+}
+
+@keyframes particle-path-2 {
+    0% { transform: rotateY(70deg) rotateX(0deg) translateY(125px); opacity: 0.8; }
+    25% { transform: rotateY(70deg) rotateX(90deg) translateX(50px); opacity: 1; }
+    50% { transform: rotateY(70deg) rotateX(180deg) translateY(-125px); opacity: 0.8; }
+    75% { transform: rotateY(70deg) rotateX(270deg) translateX(-50px); opacity: 1; }
+    100% { transform: rotateY(70deg) rotateX(360deg) translateY(125px); opacity: 0.8; }
+}
+
+@keyframes particle-path-3 {
+    0% { transform: rotateZ(45deg) rotateX(40deg) rotateY(0deg) translateX(125px); opacity: 0.8; }
+    25% { transform: rotateZ(45deg) rotateX(40deg) rotateY(90deg) translateY(50px); opacity: 1; }
+    50% { transform: rotateZ(45deg) rotateX(40deg) rotateY(180deg) translateX(-125px); opacity: 0.8; }
+    75% { transform: rotateZ(45deg) rotateX(40deg) rotateY(270deg) translateY(-50px); opacity: 1; }
+    100% { transform: rotateZ(45deg) rotateX(40deg) rotateY(360deg) translateX(125px); opacity: 0.8; }
+}
+
+/* --- Abstract Glowing Swirls (unchanged from previous) --- */
+.glowing-swirl {
+    position: absolute;
+    width: 20px;
+    height: 150px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.7), transparent);
+    border-radius: 50%;
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.6);
+    opacity: 0.5;
+    filter: blur(1px);
+    transform-style: preserve-3d;
+}
+
+.swirl-a {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotateY(80deg) rotateZ(20deg);
+    animation: swirl-motion-a 10s ease-in-out infinite alternate;
+}
+
+.swirl-b {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotateX(70deg) rotateY(10deg);
+    animation: swirl-motion-b 12s ease-in-out infinite alternate;
+}
+
+.swirl-c {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotateZ(-30deg) rotateX(50deg);
+    animation: swirl-motion-c 11s ease-in-out infinite alternate;
+}
+
+@keyframes swirl-motion-a {
+    0% { transform: translate(-50%, -50%) rotateY(80deg) rotateZ(20deg) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) rotateY(100deg) rotateZ(0deg) scale(1.05); opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) rotateY(80deg) rotateZ(20deg) scale(1); opacity: 0.5; }
+}
+
+@keyframes swirl-motion-b {
+    0% { transform: translate(-50%, -50%) rotateX(70deg) rotateY(10deg) scale(1); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) rotateX(60deg) rotateY(30deg) scale(0.95); opacity: 0.4; }
+    100% { transform: translate(-50%, -50%) rotateX(70deg) rotateY(10deg) scale(1); opacity: 0.6; }
+}
+
+@keyframes swirl-motion-c {
+    0% { transform: translate(-50%, -50%) rotateZ(-30deg) rotateX(50deg) scale(1); opacity: 0.4; }
+    50% { transform: translate(-50%, -50%) rotateZ(-10deg) rotateX(40deg) scale(1.03); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) rotateZ(-30deg) rotateX(50deg) scale(1); opacity: 0.4; }
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}

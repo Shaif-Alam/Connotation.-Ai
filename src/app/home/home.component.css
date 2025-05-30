@@ -1,0 +1,57 @@
+.bg-color-gr {
+    background: linear-gradient(to bottom, #05050E, #4A8E69);
+}
+
+.LaunchApp_button {
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-family: 'Times New Roman';
+    width: 150px;
+    height: 50px;
+    box-shadow: none;
+    border: none;
+    border-radius: 40px;
+
+}
+
+
+
+.rect_bg {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+     background: linear-gradient(to right, #358870, white);
+ margin: 50px;
+  height: 400px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.left-img img {
+  max-width: 510px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.right-imgs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 100%;
+  padding: 20px 0;
+}
+
+.small-img {
+  max-width: 210px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.top-img {
+  margin-bottom: auto;
+}
+
+.bottom-img {
+  margin-top: auto;
+}

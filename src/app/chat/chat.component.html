@@ -1,0 +1,44 @@
+<div class="chat-container">
+  <div class="chat-box">
+
+    <!-- Show this only before first message -->
+    <div *ngIf="showEnergyCore">
+      <div class="energy-core-container w-100">
+        <div class="core-nucleus"><i class="fas fa-lock"></i></div>
+
+        <div class="orbital-path path-1"></div>
+        <div class="orbital-path path-2"></div>
+        <div class="orbital-path path-3"></div>
+
+        <div class="energy-particle particle-1"></div>
+        <div class="energy-particle particle-2"></div>
+        <div class="energy-particle particle-3"></div>
+
+        <div class="glowing-swirl swirl-a"></div>
+        <div class="glowing-swirl swirl-b"></div>
+        <div class="glowing-swirl swirl-c"></div>
+      </div>
+    </div>
+
+    <!-- Chat history -->
+    <div *ngFor="let chat of chatHistory" [ngClass]="chat.sender === 'You' ? 'user' : 'AI'">
+      <strong>{{ chat.sender }}:</strong> {{ chat.message }}
+    </div>
+  </div>
+
+  <!-- Input and loader -->
+  <div class="input-area">
+    <input
+      [(ngModel)]="userInput"
+      (keyup.enter)="sendMessage()"
+      placeholder="Tell your secret to AI Agent..."
+    />
+ <button mat-fab color="primary" (click)="sendMessage()" [disabled]="loading" aria-label="Send message">
+  <mat-icon>send</mat-icon>
+</button>
+
+  </div>
+
+  <div *ngIf="loading" class="typing">AI is typing...</div>
+  <div *ngIf="error" class="error">Error: {{ error }}</div>
+</div>
