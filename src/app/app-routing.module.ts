@@ -4,6 +4,11 @@ import { ChatComponent } from './chat/chat.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+ {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full' // This ensures exact match to redirect
+  },
   {
     path: 'home',
     component: HomeComponent
@@ -12,6 +17,11 @@ const routes: Routes = [
     path: 'chat',
     component: ChatComponent
   },
+  // Optional: wildcard route to handle undefined paths
+  {
+    path: '**',
+    redirectTo: 'home'
+  }
 ];
 
 @NgModule({
